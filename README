@@ -1,5 +1,3 @@
-Homa_Benjamin-Moat_Q2a
-
 Author: Benjamin Homa
 
 To start app download zipfolder and unzip it (in its folder). 
@@ -25,4 +23,3 @@ Calculate button is disabled until two valid airports are entered, this does all
 
 Warning: If input is the same airport the map may appear gray, but is actually zoomed into the max.
 
-Tested in Microsoft Edge, FireFox, Chrome and mobile devices.
