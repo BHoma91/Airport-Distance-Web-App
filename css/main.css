@@ -1,0 +1,17 @@
+.map-canvas {
+    height:34.2em;
+    border:1px solid black;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
+
+@media (max-width:600px) {
+    .map-canvas {
+        height: 58em;
+    }
+    .mobile {
+        height:15em;
+    }
+}

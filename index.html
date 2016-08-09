@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="airportApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Air Port Distance Finder</title>
+
+    <!--All Scripts and libraries that are used -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD71hjKKOue--yVOTlLwM12N4yim5LEvd0&libraries=geometry"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/controllers/airportController.js"></script>
+</head>
+<body>
+
+<!-- Start with navbar with two tabs for main page and about page -->
+<div class="font-horizontal">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Ben's App</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Airport Distance Calculator</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Create form to use form validation throughout the page and to be controlled by controller airportController -->
+    <form name="form" ng-controller="airportController" class="form-inline">
+        <div class="container-fluid input-field">
+            <legend class="form-heading">United States Airport Distance Calculator</legend>
+
+           <!--First Input Box for Departure, uses Angular Bootstrap for typeahead and will not allow input that isn't a valid airport or else will throw error -->
+            <div class="form-group">
+                <label for="source">From:</label>
+                <input type="text" ng-model="departure" uib-typeahead="airport for airport in airports | filter:$viewValue |limitTo:6" typeahead-editable='false' id="source" name="source" class="form-control" required>
+                <div class="alert-danger" data-ng-show="form.source.$error.required" data-translate="Must Enter Departure City">Must Enter Departure City</div>
+            </div>
+
+            <!--Second Input Box for Destination, uses same logic as first input -->
+            <div class="form-group">
+                <label for="destination">To:</label>
+                <input type="text" id="destination" name="destination" ng-model="destination" uib-typeahead="airport for airport in airports | filter:$viewValue |limitTo:6" typeahead-editable='false' class="form-control" required>
+                <div class="alert-danger" data-ng-show="form.destination.$error.required" data-translate="Must Enter Destination City">Must Enter Destination City</div>
+            </div>
+
+            <!--Button that will give distance, will only be enabled when user puts in a valid departure and destination city -->
+            <div class="form-group">
+                <button type="button" class="btn btn-default" id="calculate" aria-label="Calculate Distance" ng-click="getDistance()" ng-disabled="form.$invalid">Get Distance</button>
+                <div class="alert-danger" data-ng-show="form.destination.$error.required || form.source.$error.required " data-translate="Please fill a starting and ending point">Please fill a starting and ending point</div>
+            </div>
+        </div>
+
+        <!--my maps is a directive that will hold the Google Map that we created -->
+        <div class="grid">
+            <my-maps class="map-canvas" id="map-canvas"></my-maps>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+
+

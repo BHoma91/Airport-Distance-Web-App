@@ -1,0 +1,28 @@
+Homa_Benjamin-Moat_Q2a
+
+Author: Benjamin Homa
+
+To start app download zipfolder and unzip it (in its folder). 
+After go to its directory in command prompt. Start server by entering 
+in the command line npm start and page should open in chrome on port8888.
+
+Program uses following modules and API's
+1) AngularJs - implemented to bind data from html to controller in .js file
+2) Bootstrap - implemented for css classes
+3) AngularBootstrap - implemented for typeahead (Will fill in values of textbox as user types)
+4) Open - implemented to open webpage in chrome as soon as program starts.
+5) Google Maps API - implemented to display googlemap and show route between airports.
+
+Description:
+Web Application that finds distance between any two airports in the United States.
+Airports are in JSON file airports.JSON, which was found using google.
+Input of JSON file reads as following:
+[3315, "9DD86D78-6910-47A7-BA9F-7C48ADE1C00D", 3315, 1370028886, "717674", 1370028886, "717674", "{\n}", "3413", "Cape Lisburne Lrrs", "Cape Lisburne", "United States", "LUR", "PALU", "68.875133", "-166.110022", "12", "-9", "A" ]
+The only data we use is Name, City, IATA code, Longitude and Latitude coordinates.
+
+Input textbox fields only allow airports that are in airports.JSON and will not allow user to put in different name.
+Calculate button is disabled until two valid airports are entered, this does allow as well for the same airport.
+
+Warning: If input is the same airport the map may appear gray, but is actually zoomed into the max.
+
+Tested in Microsoft Edge, FireFox, Chrome and mobile devices.

@@ -1,0 +1,21 @@
+{
+  "name": "ben",
+  "version": "1.0.0",
+  "description": "Webapp to find distance between two airports",
+  "main": "yes",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-bootstrap": "^2.0.0",
+    "bootstrap": "^3.3.7",
+    "open": "0.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "AngularJS"
+  ],
+  "author": "Ben Homa",
+  "license": "ISC"
+}
